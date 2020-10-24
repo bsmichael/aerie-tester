@@ -5,7 +5,7 @@ Feature: weather
   @metar
   Scenario Outline: Retrieve METAR information for a single station
     Given I am an unauthenticated user
-    When I ask for the <icao> METAR
+    When I request the <icao> METAR
     Then The request should be successful
 
     Examples:
@@ -15,10 +15,22 @@ Feature: weather
       | KFFC  |
 
   @metar
+  Scenario: Retrieve METAR information for the Atlanta TAC
+    Given I am an unauthenticated user
+    When I request the Atlanta METAR
+    Then The request should be successful
+
+  @metar
+  Scenario: Retrieve METAR information for the Atlanta Sectional
+    Given I am an unauthenticated user
+    When I request the AtlantaSectional METAR
+    Then The request should be successful
+
+  @metar
   Scenario Outline: Retrieve specific METAR information for a single station
     Given I am an unauthenticated user
     And I want <field> information
-    When I ask for the <icao> METAR
+    When I request the <icao> METAR
     Then The request should be successful
     And I should receive the <field> data
 
@@ -31,14 +43,14 @@ Feature: weather
   @metar
   Scenario: Retrieve METAR information for a single station
     Given I am an unauthenticated user
-    When I ask for the atlanta METAR
+    When I request the atlanta METAR
     Then The request should be successful
     And I should receive data for multiple stations
 
   @tafm @disabled
   Scenario Outline: Retrieve TAF information for a single station
     Given I am an unauthenticated user
-    When I ask for the <icao> TAF
+    When I request the <icao> TAF
     Then The request should be successful
 
     Examples:
@@ -50,7 +62,7 @@ Feature: weather
   @station @disabled
   Scenario Outline: Retrieve Station information for a single station
     Given I am an unauthenticated user
-    When I ask for the <icao> station
+    When I request the <icao> station
     Then The request should be successful
 
     Examples:
