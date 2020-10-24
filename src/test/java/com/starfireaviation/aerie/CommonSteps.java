@@ -33,7 +33,7 @@ public class CommonSteps extends BaseSteps {
 
     @Given("^A user with username (.*) exists$")
     public void userExists(String username) {
-        throw new PendingException();
+        // TODO: Do something
     }
 
     @Then("^The request should be successful$")
@@ -43,6 +43,14 @@ public class CommonSteps extends BaseSteps {
 
     @Then("^A (.*) exception should be thrown$")
     public void aExceptionShouldBeThrown(String exception) {
-        throw new PendingException();
+        switch (exception) {
+            case "unauthorized":
+                testContext.getResponse().then().statusCode(HttpStatus.SC_UNAUTHORIZED);
+                break;
+            case "forbidden":
+                testContext.getResponse().then().statusCode(HttpStatus.SC_FORBIDDEN);
+                break;
+            default:
+        }
     }
 }

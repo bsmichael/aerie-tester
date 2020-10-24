@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class CommentSteps extends BaseSteps {
+
+    /**
+     * Comment service.
+     */
+    private String COMMENT = "comments";
 
     @Given("^A comment exists$")
     public void aCommentExists() {
@@ -24,17 +30,26 @@ public class CommentSteps extends BaseSteps {
 
     @When("^I request to create a comment$")
     public void iRequestToCreateAComment() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + COMMENT);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request a comment$")
     public void iRequestAComment() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + COMMENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request all comments$")
     public void iRequestAllComments() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + COMMENT);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request all comments for user (.*)$")
@@ -44,12 +59,18 @@ public class CommentSteps extends BaseSteps {
 
     @When("^I request to update a comment$")
     public void iRequestToUpdateAComment() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + COMMENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request to delete a comment$")
     public void iRequestToDeleteAComment() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + COMMENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @Then("^A comment is created$")

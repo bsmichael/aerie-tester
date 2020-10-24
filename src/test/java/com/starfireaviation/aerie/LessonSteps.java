@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class LessonSteps extends BaseSteps {
+
+    /**
+     * Lesson service.
+     */
+    private String LESSON = "lessons";
 
     @Given("^A lesson exists$")
     public void aLessonExists() {
@@ -19,17 +25,26 @@ public class LessonSteps extends BaseSteps {
 
     @When("^I request to create a lesson$")
     public void iRequestToCreateALesson() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + LESSON);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request a lesson$")
     public void iRequestALesson() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + LESSON + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request all lessons$")
     public void iRequestAllLessons() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + LESSON);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request all attended lessons for user (.*)$")
@@ -39,12 +54,18 @@ public class LessonSteps extends BaseSteps {
 
     @When("^I request to update a lesson$")
     public void iRequestToUpdateALesson() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + LESSON + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request to delete a lesson$")
     public void iRequestToDeleteALesson() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + LESSON + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @Then("^A lesson is created$")

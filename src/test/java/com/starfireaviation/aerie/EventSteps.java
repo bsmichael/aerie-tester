@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class EventSteps extends BaseSteps {
+
+    /**
+     * Event service.
+     */
+    private String EVENT = "events";
 
     @Given("^An event exists$")
     public void anEventExists() {
@@ -19,27 +25,42 @@ public class EventSteps extends BaseSteps {
 
     @When("^I request to create an event$")
     public void iRequestToCreateAnEvent() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + EVENT);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request an event$")
     public void iRequestAnEvent() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + EVENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request all events$")
     public void iRequestAllEvents() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + EVENT);
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request to update an event$")
     public void iRequestToUpdateAnEvent() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + EVENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request to delete an event$")
     public void iRequestToDeleteAnEvent() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + EVENT + "/1");
+        testContext.setResponse(response);
+        //System.out.println("response: " + response.prettyPrint());
     }
 
     @Then("^An event is created$")

@@ -20,19 +20,19 @@ Feature: comment
     Given I am an authenticated user
     And My username is test
     When I request to create a comment
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new comment, unauthenticated
     Given I am an unauthenticated user
     When I request to create a comment
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @get @disabled
   Scenario: Get a comment, unauthenticated
     Given I am an unauthenticated user
     When I request a comment
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @get @disabled
   Scenario: Get a comment
@@ -57,14 +57,14 @@ Feature: comment
   Scenario: Get all comments, unauthenticated
     Given I am an unauthenticated user
     When I request all comments
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @getAll @disabled
   Scenario: Get all comments, no role assigned
     Given I am an authenticated user
     And My username is test
     When I request all comments
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @getAll @disabled
   Scenario: Get all comments
@@ -80,7 +80,7 @@ Feature: comment
   Scenario: Get all comments for a user, unauthenticated
     Given I am an unauthenticated user
     When I request all comments for user test
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @getAllUser @disabled
   Scenario: Get all comments for my user
@@ -106,13 +106,13 @@ Feature: comment
     Given I am an authenticated user
     And My username is test
     When I request all comments for user other
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Update a comment, unauthenticated
     Given I am an unauthenticated user
     When I request to update a comment
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @update @disabled
   Scenario: Update a comment
@@ -128,7 +128,7 @@ Feature: comment
     Given I am an authenticated user
     And My username is test
     When I request to update a comment
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @update @disabled
   Scenario: Update my comment, no update role assigned
@@ -139,11 +139,11 @@ Feature: comment
     Then The request should be successful
     And The comment should be updated
 
-  @update @disabled
+  @delete
   Scenario: Delete a comment, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a comment
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @delete @disabled
   Scenario: Delete a comment
@@ -166,4 +166,4 @@ Feature: comment
     Given I am an authenticated user
     And My username is test
     When I request to delete a comment
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown

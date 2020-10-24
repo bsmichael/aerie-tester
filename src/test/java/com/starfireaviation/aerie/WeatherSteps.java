@@ -2,6 +2,7 @@ package com.starfireaviation.aerie;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 
 /**
@@ -20,20 +21,26 @@ public class WeatherSteps extends BaseSteps {
     }
 
     @When("^I request the (.*) METAR$")
-    public void iAskForTheMETAR(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "metars/" + icao));
+    public void iRequestTheMETAR(String icao) {
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "metars/" + icao);
+        testContext.setResponse(response);
         //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request the (.*) TAF$")
-    public void iAskForTheTAF(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() +WEATHER + "tafs/" + icao));
+    public void iRequestTheTAF(String icao) {
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "tafs/" + icao);
+        testContext.setResponse(response);
         //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request the (.*) station$")
-    public void iAskForTheStation(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() +WEATHER + "stations/" + icao));
+    public void iRequestTheStation(String icao) {
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "stations/" + icao);
+        testContext.setResponse(response);
         //System.out.println("response: " + response.prettyPrint());
     }
 

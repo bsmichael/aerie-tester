@@ -21,17 +21,17 @@ Feature: lesson
     When I request to create a lesson
     Then A unauthorized request exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new lesson, unauthenticated
     Given I am an unauthenticated user
     When I request to create a lesson
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @get @disabled
   Scenario: Get a lesson, unauthenticated
     Given I am an unauthenticated user
     When I request a lesson
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @get @disabled
   Scenario: Get a lesson
@@ -47,7 +47,7 @@ Feature: lesson
   Scenario: Get all lessons, unauthenticated
     Given I am an unauthenticated user
     When I request all lessons
-    Then A unauthorized request exception should be thrown
+    Then A unauthorized exception should be thrown
 
   @getAll @disabled
   Scenario: Get all lessons, no role assigned
@@ -66,11 +66,11 @@ Feature: lesson
     Then The request should be successful
     And I should receive a list of lessons
 
-  @update @disabled
+  @update
   Scenario: Update a lesson, unauthenticated
     Given I am an unauthenticated user
     When I request to update a lesson
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @update @disabled
   Scenario: Update a lesson
@@ -88,11 +88,11 @@ Feature: lesson
     When I request to update a lesson
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @delete
   Scenario: Delete a lesson, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a lesson
-    Then A unauthorized request exception should be thrown
+    Then A forbidden exception should be thrown
 
   @delete @disabled
   Scenario: Delete a lesson
