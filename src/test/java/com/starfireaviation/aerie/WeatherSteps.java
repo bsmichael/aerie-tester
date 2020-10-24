@@ -21,19 +21,19 @@ public class WeatherSteps extends BaseSteps {
 
     @When("^I request the (.*) METAR$")
     public void iAskForTheMETAR(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(AERIE_BASE_URL + WEATHER + "metars/" + icao));
+        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "metars/" + icao));
         //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request the (.*) TAF$")
     public void iAskForTheTAF(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(AERIE_BASE_URL +WEATHER + "tafs/" + icao));
+        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() +WEATHER + "tafs/" + icao));
         //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request the (.*) station$")
     public void iAskForTheStation(String icao) {
-        testContext.setResponse(testContext.getRequest().when().get(AERIE_BASE_URL +WEATHER + "stations/" + icao));
+        testContext.setResponse(testContext.getRequest().when().get(getAerieBaseUrl() +WEATHER + "stations/" + icao));
         //System.out.println("response: " + response.prettyPrint());
     }
 
