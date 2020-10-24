@@ -63,7 +63,6 @@ Feature: comment
   Scenario: Get all comments, no role assigned
     Given I am an authenticated user
     And My username is test
-    And More than 1 comments exist
     When I request all comments
     Then A unauthorized request exception should be thrown
 
