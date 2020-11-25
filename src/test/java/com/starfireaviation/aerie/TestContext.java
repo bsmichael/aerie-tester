@@ -48,30 +48,63 @@ public class TestContext {
         return instance;
     }
 
+    /**
+     * Retrieves previous step response.
+     *
+     * @return Response
+     */
     public Response getResponse() {
         return response;
     }
 
+    /**
+     * Sets step response.
+     *
+     * @param response Response
+     */
     public void setResponse(Response response) {
         this.response = response;
     }
 
+    /**
+     * Retrieves step json.
+     *
+     * @return ValidatableResponse
+     */
     public ValidatableResponse getJson() {
         return json;
     }
 
+    /**
+     * Sets step json.
+     *
+     * @param json ValidatableResponse
+     */
     public void setJson(ValidatableResponse json) {
         this.json = json;
     }
 
+    /**
+     * Retrieves request.
+     *
+     * @return RequestSpecification
+     */
     public RequestSpecification getRequest() {
         return request;
     }
 
+    /**
+     * Sets request.
+     *
+     * @param request RequestSpecification
+     */
     public void setRequest(RequestSpecification request) {
         this.request = request;
     }
 
+    /**
+     * Resets TestContext variables.
+     */
     public void reset() {
         response = null;
         json = null;

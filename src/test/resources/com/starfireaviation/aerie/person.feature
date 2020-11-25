@@ -21,7 +21,7 @@ Feature: person
     When I request to create a user
     Then A conflict exception should be thrown
 
-  @get @disabled
+  @get
   Scenario: Get a user's information, unauthenticated
     Given I am an unauthenticated user
     When I request information for the test user
@@ -51,7 +51,7 @@ Feature: person
     When I request information for the test user
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Update a user's information, unauthenticated
     Given I am an unauthenticated user
     When I request to update the user information for test
@@ -90,7 +90,7 @@ Feature: person
     Then The request should be successful
     And The user information for test should be updated
 
-  @update @disabled
+  @update
   Scenario: Delete a user's information, unauthenticated
     Given I am an unauthenticated user
     When I request to delete the user information for test

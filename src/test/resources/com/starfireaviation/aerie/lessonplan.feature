@@ -21,13 +21,13 @@ Feature: lessonplan
     When I request to create a lessonplan
     Then A unauthorized request exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new lessonplan, unauthenticated
     Given I am an unauthenticated user
     When I request to create a lessonplan
     Then A unauthorized request exception should be thrown
 
-  @get @disabled
+  @get
   Scenario: Get a lessonplan, unauthenticated
     Given I am an unauthenticated user
     When I request a lessonplan
@@ -43,7 +43,7 @@ Feature: lessonplan
     Then The request should be successful
     And I should receive the lessonplan details
 
-  @getAll @disabled
+  @getAll
   Scenario: Get all lessonplans, unauthenticated
     Given I am an unauthenticated user
     When I request all lessonplans
@@ -66,7 +66,7 @@ Feature: lessonplan
     Then The request should be successful
     And I should receive a list of lessonplans
 
-  @update @disabled
+  @update
   Scenario: Update a lessonplan, unauthenticated
     Given I am an unauthenticated user
     When I request to update a lessonplan
@@ -88,7 +88,7 @@ Feature: lessonplan
     When I request to update a lessonplan
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Delete a lessonplan, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a lessonplan

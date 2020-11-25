@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class QuestionSteps extends BaseSteps {
+
+    /**
+     * Question service.
+     */
+    private String QUESTION = "questions";
 
     @Given("^A question exists$")
     public void aQuestionExists() {
@@ -19,27 +25,42 @@ public class QuestionSteps extends BaseSteps {
 
     @When("^I request to create a question$")
     public void iRequestToCreateAQuestion() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + QUESTION);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request a question$")
     public void iRequestAQuestion() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + QUESTION + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request all questions$")
     public void iRequestAllQuestions() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + QUESTION);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to update a question$")
     public void iRequestToUpdateAQuestion() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + QUESTION + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to delete a question$")
     public void iRequestToDeleteAQuestion() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + QUESTION + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I answer a question$")

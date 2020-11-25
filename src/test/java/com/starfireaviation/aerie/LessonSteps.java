@@ -28,7 +28,7 @@ public class LessonSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().post(getAerieBaseUrl() + LESSON);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request a lesson$")
@@ -36,7 +36,7 @@ public class LessonSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + LESSON + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request all lessons$")
@@ -44,7 +44,7 @@ public class LessonSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + LESSON);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request all attended lessons for user (.*)$")
@@ -57,7 +57,7 @@ public class LessonSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().put(getAerieBaseUrl() + LESSON + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request to delete a lesson$")
@@ -65,7 +65,7 @@ public class LessonSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().delete(getAerieBaseUrl() + LESSON + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @Then("^A lesson is created$")

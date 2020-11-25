@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class LessonPlanSteps extends BaseSteps {
+
+    /**
+     * LessonPlan service.
+     */
+    private String LESSON_PLAN = "lessonplans";
 
     @Given("^A lessonplan exists$")
     public void aLessonPlanExists() {
@@ -19,27 +25,42 @@ public class LessonPlanSteps extends BaseSteps {
 
     @When("^I request to create a lessonplan$")
     public void iRequestToCreateALessonPlan() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + LESSON_PLAN);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request a lessonplan$")
     public void iRequestALessonPlan() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + LESSON_PLAN + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request all lessonplans$")
     public void iRequestAllLessonPlans() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + LESSON_PLAN);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to update a lessonplan$")
     public void iRequestToUpdateALessonPlan() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + LESSON_PLAN + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to delete a lessonplan$")
     public void iRequestToDeleteALessonPlan() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + LESSON_PLAN + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @Then("^A lessonplan is created$")

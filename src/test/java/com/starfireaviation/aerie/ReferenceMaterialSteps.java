@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class ReferenceMaterialSteps extends BaseSteps {
+
+    /**
+     * ReferenceMaterial service.
+     */
+    private String REFERENCE_MATERIAL = "referencematerials";
 
     @Given("^A reference material exists$")
     public void aReferenceMaterialExists() {
@@ -19,27 +25,42 @@ public class ReferenceMaterialSteps extends BaseSteps {
 
     @When("^I request to create a reference material$")
     public void iRequestToCreateAReferenceMaterial() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + REFERENCE_MATERIAL);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request a reference material$")
     public void iRequestAReferenceMaterial() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + REFERENCE_MATERIAL + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request all reference materials$")
     public void iRequestAllReferenceMaterials() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + REFERENCE_MATERIAL);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to update a reference material$")
     public void iRequestToUpdateAReferenceMaterial() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + REFERENCE_MATERIAL + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to delete a reference material$")
     public void iRequestToDeleteAReferenceMaterial() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + REFERENCE_MATERIAL + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @Then("^A reference material is created$")

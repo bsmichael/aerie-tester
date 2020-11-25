@@ -33,7 +33,7 @@ public class CommentSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().post(getAerieBaseUrl() + COMMENT);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request a comment$")
@@ -41,7 +41,7 @@ public class CommentSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + COMMENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request all comments$")
@@ -49,7 +49,7 @@ public class CommentSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + COMMENT);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request all comments for user (.*)$")
@@ -62,7 +62,7 @@ public class CommentSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().put(getAerieBaseUrl() + COMMENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request to delete a comment$")
@@ -70,7 +70,7 @@ public class CommentSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().delete(getAerieBaseUrl() + COMMENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @Then("^A comment is created$")

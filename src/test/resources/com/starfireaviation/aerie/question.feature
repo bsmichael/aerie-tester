@@ -21,13 +21,13 @@ Feature: question
     When I request to create a question
     Then A unauthorized request exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new question, unauthenticated
     Given I am an unauthenticated user
     When I request to create a question
     Then A unauthorized request exception should be thrown
 
-  @get @disabled
+  @get
   Scenario: Get a question, unauthenticated
     Given I am an unauthenticated user
     When I request a question
@@ -42,7 +42,7 @@ Feature: question
     Then The request should be successful
     And I should receive the question details
 
-  @getAll @disabled
+  @getAll
   Scenario: Get all questions, unauthenticated
     Given I am an unauthenticated user
     When I request all questions
@@ -57,7 +57,7 @@ Feature: question
     Then The request should be successful
     And I should receive a list of questions
 
-  @update @disabled
+  @update
   Scenario: Update a question, unauthenticated
     Given I am an unauthenticated user
     When I request to update a question
@@ -79,7 +79,7 @@ Feature: question
     When I request to update a question
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Delete a question, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a question

@@ -4,8 +4,14 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
 
 public class QuizSteps extends BaseSteps {
+
+    /**
+     * Quiz service.
+     */
+    private String QUIZ = "quizzes";
 
     @Given("^A quiz exists$")
     public void aQuizExists() {
@@ -19,27 +25,42 @@ public class QuizSteps extends BaseSteps {
 
     @When("^I request to create a quiz$")
     public void iRequestToCreateAQuiz() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().post(getAerieBaseUrl() + QUIZ);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request a quiz$")
     public void iRequestAQuiz() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + QUIZ + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request all quizzes$")
     public void iRequestAllQuizzes() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().get(getAerieBaseUrl() + QUIZ);
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to update a quiz$")
     public void iRequestToUpdateAQuiz() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().put(getAerieBaseUrl() + QUIZ + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I request to delete a quiz$")
     public void iRequestToDeleteAQuiz() {
-        throw new PendingException();
+        final Response response =
+                testContext.getRequest().when().delete(getAerieBaseUrl() + QUIZ + "/1");
+        testContext.setResponse(response);
+        super.printResponse(response);
     }
 
     @When("^I start a quiz$")

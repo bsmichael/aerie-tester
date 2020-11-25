@@ -21,13 +21,13 @@ Feature: reference material
     When I request to create a reference material
     Then A unauthorized request exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new reference material, unauthenticated
     Given I am an unauthenticated user
     When I request to create a reference material
     Then A unauthorized request exception should be thrown
 
-  @get @disabled
+  @get
   Scenario: Get a reference material, unauthenticated
     Given I am an unauthenticated user
     When I request a reference material
@@ -42,7 +42,7 @@ Feature: reference material
     Then The request should be successful
     And I should receive the reference material details
 
-  @getAll @disabled
+  @getAll
   Scenario: Get all reference materials, unauthenticated
     Given I am an unauthenticated user
     When I request all reference materials
@@ -64,7 +64,7 @@ Feature: reference material
     Then The request should be successful
     And I should receive a list of reference materials
 
-  @update @disabled
+  @update
   Scenario: Update a reference material, unauthenticated
     Given I am an unauthenticated user
     When I request to update a reference material
@@ -86,7 +86,7 @@ Feature: reference material
     When I request to update a reference material
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Delete a reference material, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a reference material

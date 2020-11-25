@@ -28,7 +28,7 @@ public class EventSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().post(getAerieBaseUrl() + EVENT);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request an event$")
@@ -36,7 +36,7 @@ public class EventSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + EVENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request all events$")
@@ -44,7 +44,7 @@ public class EventSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + EVENT);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request to update an event$")
@@ -52,7 +52,7 @@ public class EventSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().put(getAerieBaseUrl() + EVENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request to delete an event$")
@@ -60,7 +60,7 @@ public class EventSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().delete(getAerieBaseUrl() + EVENT + "/1");
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @Then("^An event is created$")

@@ -2,11 +2,14 @@ package com.starfireaviation.aerie;
 
 import java.io.IOException;
 import java.util.Properties;
+import io.restassured.response.Response;
 
 /**
  * Base class for Cucumber test implementation classes.
  */
 public class BaseSteps {
+
+    private static final boolean PRINT = false;
 
     private static Properties properties = new Properties();
 
@@ -25,5 +28,11 @@ public class BaseSteps {
 
     protected String getAerieBaseUrl() {
         return (String) properties.get("aerie.base-url");
+    }
+
+    protected void printResponse(Response response) {
+        if (PRINT) {
+            System.out.println("response: " + response.prettyPrint());
+        }
     }
 }

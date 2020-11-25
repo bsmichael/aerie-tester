@@ -21,13 +21,13 @@ Feature: quiz
     When I request to create a quiz
     Then A unauthorized request exception should be thrown
 
-  @create @disabled
+  @create
   Scenario: Create a new quiz, unauthenticated
     Given I am an unauthenticated user
     When I request to create a quiz
     Then A unauthorized request exception should be thrown
 
-  @get @disabled
+  @get
   Scenario: Get a quiz, unauthenticated
     Given I am an unauthenticated user
     When I request a quiz
@@ -42,7 +42,7 @@ Feature: quiz
     Then The request should be successful
     And I should receive the quiz details
 
-  @getAll @disabled
+  @getAll
   Scenario: Get all quizzes, unauthenticated
     Given I am an unauthenticated user
     When I request all quizzes
@@ -57,7 +57,7 @@ Feature: quiz
     Then The request should be successful
     And I should receive a list of quizzes
 
-  @update @disabled
+  @update
   Scenario: Update a quiz, unauthenticated
     Given I am an unauthenticated user
     When I request to update a quiz
@@ -79,7 +79,7 @@ Feature: quiz
     When I request to update a quiz
     Then A unauthorized request exception should be thrown
 
-  @update @disabled
+  @update
   Scenario: Delete a quiz, unauthenticated
     Given I am an unauthenticated user
     When I request to delete a quiz

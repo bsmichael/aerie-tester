@@ -25,7 +25,6 @@ public class WeatherSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "metars/" + icao);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
     }
 
     @When("^I request the (.*) TAF$")
@@ -33,7 +32,7 @@ public class WeatherSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "tafs/" + icao);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @When("^I request the (.*) station$")
@@ -41,7 +40,7 @@ public class WeatherSteps extends BaseSteps {
         final Response response =
                 testContext.getRequest().when().get(getAerieBaseUrl() + WEATHER + "stations/" + icao);
         testContext.setResponse(response);
-        //System.out.println("response: " + response.prettyPrint());
+        super.printResponse(response);
     }
 
     @And("^I should receive the (.*) data$")
